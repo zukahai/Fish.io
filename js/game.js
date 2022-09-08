@@ -18,7 +18,7 @@ class game {
         this.context = this.canvas.getContext("2d");
         document.body.appendChild(this.canvas);
 
-        this.fish = new Fish(this, 100, 100);
+        this.fish = new Fish(this, 100, 100, 100, 150);
 
         this.render();
         this.loop();
@@ -63,6 +63,7 @@ class game {
 
     draw() {
         this.clearScreen();
+        this.fish.draw();
     }
 
     clearScreen() {
