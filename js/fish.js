@@ -26,11 +26,20 @@ class Fish {
     update() {
         this.x += this.vx;
         this.y += this.vy;
+
+        if (this.x < 0)
+            this.x = 0;
+        if (this.y < 0)
+            this.y = 0;
+        if (this.x > W_im)
+            this.x = W_im;
+        if (this.y > H_im)
+            this.y = H_im;
     }
 
     draw() {
-        let dx = (game_W - this.width) / 2;
-        let dy = (game_H - this.height) / 2;
+        let dx = this.x - this.width / 2 - XX;
+        let dy = this.y - this.height / 2 - YY;
         let width = this.width;
         let height = this.height;
         this.game.context.drawImage(this.fish_im, dx, dy, width, height);
