@@ -5,7 +5,7 @@ let H_im = W_im = 0;
 var bg = new Image();
 var chX = 0,
     chY = 0;
-bg.src = "images/background.png";
+bg.src = "images/bg/background2.png";
 
 
 class game {
