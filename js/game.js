@@ -39,9 +39,9 @@ class game {
             let vX = (x - (this.fish.x - XX));
             let vY = (y - (this.fish.y - YY));
             let vH = Math.sqrt(vX * vX + vY * vY);
-            this.fish.vx = 3 * vX / vH;
-            this.fish.vy = 3 * vY / vH;
-            console.log(this.fish.vx, ' ', this.fish.vy);
+            this.fish.vx = 3.5 * vX / vH;
+            this.fish.vy = 3.5 * vY / vH;
+            // console.log(this.fish.vx, ' ', this.fish.vy);
         })
 
         document.addEventListener("mouseup", evt => {
@@ -78,17 +78,17 @@ class game {
         H_im = 1 * bg.height;
         XX = this.fish.x - game_W / 2;
         YY = this.fish.y - game_H / 2;
-        // if (XX < 0)
-        //     XX = 0;
-        // if (YY < 0)
-        //     YY = 0;
-        // if (XX + game_W > W_im)
-        //     XX = W_im - game_W;
-        // if (YY + game_H > H_im)
-        //     YY = H_im - game_H;
+        if (XX < 0)
+            XX = 0;
+        if (YY < 0)
+            YY = 0;
+        if (XX + game_W > W_im)
+            XX = W_im - game_W;
+        if (YY + game_H > H_im)
+            YY = H_im - game_H;
 
-        this.context.drawImage(bg, XX, YY, W_im / 2, H_im / 2,
-            0, 0, 2 * W_im, 2 * H_im);
+        this.context.drawImage(bg, XX, YY, W_im, H_im,
+            0, 0, W_im, H_im);
     }
 }
 

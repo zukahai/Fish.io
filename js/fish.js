@@ -27,6 +27,8 @@ class Fish {
         this.x += this.vx;
         this.y += this.vy;
 
+        console.log(this.x, ' ', this.vx);
+
         if (this.x < 0)
             this.x = 0;
         if (this.y < 0)
