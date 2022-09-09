@@ -1,10 +1,10 @@
 let game_W = 20;
 let game_H = 20;
-let XX = YY = 0;
-let H_im = W_im = 0;
+let XX = 0;
+let YY = 0;
+let H_im;
+let W_im;
 var bg = new Image();
-var chX = 0,
-    chY = 0;
 bg.src = "images/bg/background2.png";
 
 
@@ -19,10 +19,11 @@ class game {
         this.canvas = document.createElement("canvas");
         this.context = this.canvas.getContext("2d");
         document.body.appendChild(this.canvas);
-
-        this.fish = new Fish(this, 0.5 * bg.width, 0.5 * bg.height, 100, 150);
-
         this.render();
+
+        this.fish = new Fish(this, 1000, 500, 100, 110);
+        XX = this.fish.x - game_W / 2;
+        YY = this.fish.y - game_H / 2;
         this.loop();
         this.listenMouse();
     }
@@ -39,8 +40,8 @@ class game {
             let vX = (x - (this.fish.x - XX));
             let vY = (y - (this.fish.y - YY));
             let vH = Math.sqrt(vX * vX + vY * vY);
-            this.fish.vx = 3.5 * vX / vH;
-            this.fish.vy = 3.5 * vY / vH;
+            this.fish.vx = 8 * vX / vH;
+            this.fish.vy = 8 * vY / vH;
             // console.log(this.fish.vx, ' ', this.fish.vy);
         })
 

@@ -7,12 +7,12 @@ class Fish {
         this.height = height;
 
         this.init();
-        this.loop();
+        // this.loop();
     }
 
     init() {
         this.fish_im = [];
-        for (let i = 1; i <= 12; i++) {
+        for (let i = 1; i <= 58; i++) {
             this.fish_im[i] = new Image();
             this.fish_im[i].src = "images/fishes/" + i + ".png";
         }
@@ -33,7 +33,7 @@ class Fish {
         this.x += this.vx;
         this.y += this.vy;
 
-        // console.log(this.x, ' ', this.vx);
+        console.log(this.x, ' ', this.y);
 
         if (this.x < 0)
             this.x = 0;
@@ -44,8 +44,8 @@ class Fish {
         if (this.y > H_im)
             this.y = H_im;
 
-        if (++this.countIndexImage > 30) {
-            if (++this.indexImage > 12)
+        if (++this.countIndexImage > 3) {
+            if (++this.indexImage > 58)
                 this.indexImage = 1;
             this.countIndexImage = 0;
         }
