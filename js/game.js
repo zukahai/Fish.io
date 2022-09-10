@@ -40,8 +40,8 @@ class game {
             let vX = (x - (this.fish.x - XX));
             let vY = (y - (this.fish.y - YY));
             let vH = Math.sqrt(vX * vX + vY * vY);
-            this.fish.vx = 8 * vX / vH;
-            this.fish.vy = 8 * vY / vH;
+            this.fish.vx = 6 * vX / vH;
+            this.fish.vy = 6 * vY / vH;
             // console.log(this.fish.vx, ' ', this.fish.vy);
         })
 

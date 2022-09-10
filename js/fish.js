@@ -61,6 +61,8 @@ class Fish {
         let width = this.width;
         let height = this.height;
         try {
+            // this.game.context.translate(width, 0);
+            // this.game.context.scale(-1, 1);
             this.game.context.drawImage(this.fish_im[this.indexImage], dx, dy, width, height);
         } catch (error) {
             this.NumberOfImage = this.indexImage - 1;
