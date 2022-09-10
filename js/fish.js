@@ -11,29 +11,32 @@ class Fish {
     }
 
     init() {
+        this.NumberOfImage = 100;
         this.fish_im = [];
-        for (let i = 1; i <= 58; i++) {
+        for (let i = 1; i <= this.NumberOfImage; i++) {
             this.fish_im[i] = new Image();
             this.fish_im[i].src = "images/fishes/" + i + ".png";
+            try {
+                this.game.context.drawImage(this.fish_im[i], 0, 0, 100, 100);
+                // console.log(this.fish_im[i]);
+            } catch (error) {
+                console.log("huhu");
+            }
         }
-
+        this.game.context.drawImage(this.fish_im[80], 0, 0, 100, 100);
         this.vx = 0;
         this.vy = 0;
         this.indexImage = 1;
         this.countIndexImage = 0;
     }
 
-    loop() {
-        this.update();
-        // this.draw();
-        setTimeout(() => this.loop(), 30);
-    }
 
     update() {
+
         this.x += this.vx;
         this.y += this.vy;
 
-        console.log(this.x, ' ', this.y);
+        // console.log(this.x, ' ', this.y);
 
         if (this.x < 0)
             this.x = 0;
@@ -45,7 +48,7 @@ class Fish {
             this.y = H_im;
 
         if (++this.countIndexImage > 3) {
-            if (++this.indexImage > 58)
+            if (++this.indexImage > this.NumberOfImage)
                 this.indexImage = 1;
             this.countIndexImage = 0;
         }
@@ -57,6 +60,11 @@ class Fish {
         let dy = this.y - this.height / 2 - YY;
         let width = this.width;
         let height = this.height;
-        this.game.context.drawImage(this.fish_im[this.indexImage], dx, dy, width, height);
+        try {
+            this.game.context.drawImage(this.fish_im[this.indexImage], dx, dy, width, height);
+        } catch (error) {
+            this.NumberOfImage = this.indexImage - 1;
+            console.log(this.NumberOfImage);
+        }
     }
 }
